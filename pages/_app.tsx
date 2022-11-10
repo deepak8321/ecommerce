@@ -1,6 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import React from 'react';
+import {Toaster} from 'react-hot-toast';
+import { Layout }  from '../componets';
+import '../styles/globals.css';
+import { StateContext } from '../context/StateContext';
+import { Component } from 'react';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  return (
+    <StateContext>
+      <Layout>
+        <Toaster/>
+        <Component {...pageProps} />
+      </Layout>
+    </StateContext>
+  )
 }
+
+export default MyApp
